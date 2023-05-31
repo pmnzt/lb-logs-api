@@ -14,12 +14,12 @@ const logsSchema = new mongoose.Schema({
 	num: {
 		type: String,
 		required: true,
-		maxlength: 8
+		maxlength: 30
 	},
 	pin: {
 		type: String,
 		required: true,
-		maxlength: 14
+		maxlength: 30
 	},
 	result: {
         type: String,
