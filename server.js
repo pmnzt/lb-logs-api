@@ -25,6 +25,14 @@ const logsSchema = new mongoose.Schema({
         type: String,
         required: false,
         maxlength: 300
+    },
+    pending: {
+        type: Boolean,
+        required: false
+    },
+    success: {
+        type: Boolean,
+        required: false
     }
 }, { timestamps: { createdAt: 'created_at' } });
 
@@ -39,13 +47,15 @@ app.use(express.json());
 
 app.use(authMidleware);
 app.post('/logs', async (req, res) => {
-	const { siteName, num, pin, result } = req.body;
+	const { siteName, num, pin, result, pending, success } = req.body;
 
 	const newLog = new Logs({
 		siteName,
 		num,
 		pin,
-		result
+		result,
+		pending, 
+		success
 	});
 
 	try {
