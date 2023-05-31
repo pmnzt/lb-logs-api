@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 dotenv.config();
 
@@ -31,6 +32,8 @@ const Logs = mongoose.model('Log', logsSchema);
 
 const app = express();
 
+
+app.use(cors());
 app.use(express.json());
 
 
